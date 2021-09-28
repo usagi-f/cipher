@@ -9,7 +9,8 @@ type Shift = (text: Plain | Cipher, key: number) => Plain | Cipher;
 const caesarKey = 3;
 
 const shift: Shift = (text, key) => {
-  const uppercase = text.toUpperCase();
+  const normalized = text.replace(/\s+/g, '');
+  const uppercase = normalized.toUpperCase();
   const splitted = uppercase.split('');
   return splitted.map((char) => {
     return String.fromCharCode(((char.charCodeAt() - 65 + key) % 26) + 65);
