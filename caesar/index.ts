@@ -14,8 +14,8 @@ const shift: Shift = (text, key) => {
   const splitted = uppercase.split('');
   return splitted.map((char) => {
     const quantity = (char.charCodeAt(0) - 65 + key) % 26;
-    const shiftted = Math.sign(quantity) >= 0 ? quantity : quantity + 26;
-    return String.fromCharCode(shiftted + 65);
+    const shifted = Math.sign(quantity) >= 0 ? quantity : quantity + 26;
+    return String.fromCharCode(shifted + 65);
   }).join('');
 };
 
